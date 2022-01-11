@@ -37,7 +37,7 @@ public class EjerciciosNivel01 {
         frase = frase.replace('ó', 'o');
         frase = frase.replace('ú', 'u');
         //quito también los espacios en blanco
-        frase = frase.replace(" ", "");
+        frase = frase.replace(" ", "");  //Ponemos comillas simples para indicar que el espacio es un charAt
         
         return frase;
     }
@@ -59,6 +59,39 @@ public class EjerciciosNivel01 {
         }
         
     }
+    
+    public boolean esIsograma(String palabra){
+        palabra = limpiaFrase(palabra);
+        
+        for (int i=0; i < palabra.length(); i++) {
+            for(int j=i + 1; j< palabra.length(); j++){
+                if (palabra.charAt(i) == palabra.charAt(j)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    /**
+     * 
+     * @param frase la frase a convertir en acronimo, el acronimo en mayusculas
+     * @return 
+     */
+    
+    public String esAcronimo(String frase){
+        //Suponemos que por lo menos hay una letra en la frase
+       frase = frase.toUpperCase();
+       String palabras[] = frase.split(" "); //Dividimos la frase en palabras
+       String resultado = ""; //Ponemos comillas para que java lo convierta en string
+       
+       for (int i=0; i<palabras.length;i++){
+            if (!(palabras[i].equals("Y") || palabras[i].equals("E") || palabras[i].equals("DE") || palabras[i].equals("LA") || palabras[i].equals("LAS"))){
+            resultado = resultado + palabras[i].charAt(0);
+            }
+         }
+       return resultado;
+    }
 
     public static void main(String[] args) {
        int[] numeros = {99,37,7,54,13}; 
@@ -67,7 +100,11 @@ public class EjerciciosNivel01 {
        EjerciciosNivel01 e = new EjerciciosNivel01();
        //System.out.print(Arrays.toString(e.maximos(numeros2)));
        
-       System.out.print(e.esPalindromo("Acaso hubo buhos acá"));
+       // palindromo System.out.print(e.esPalindromo("Acaso hubo buhos acá")); 
+       //es Isograma System.out.println(e.esIsograma("pajaro"));
+       //es Acronimo System.out.println("acronimo de alta velocidad española: " + e.esAcronimo("Alta Velocidad Española"));
+       
+       
     }
     
 }
