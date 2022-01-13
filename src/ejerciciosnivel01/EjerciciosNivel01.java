@@ -92,6 +92,31 @@ public class EjerciciosNivel01 {
          }
        return resultado;
     }
+        /**
+     * 
+     * @param anagrama comprobamos si es un anagrama comparando las letras y borrandolas
+     * una vez que hemos visto que si coinciden
+     * @return 
+     */
+    public boolean esAnagrama (String palabra1, String palabra2){
+         palabra1 = limpiaFrase(palabra1);
+         palabra2 = limpiaFrase(palabra2);
+         palabra1 = palabra1.toUpperCase();
+         palabra2 = palabra2.toUpperCase();
+         if (palabra1.length() == palabra2.length()){ //Para que sean anagramas tienen que tener la misma longitud
+         for(int i=0; i< palabra1.length(); i++){
+         for(int j=0; j< palabra2.length(); j++){
+            if (palabra1.charAt(i) == palabra2.charAt(j)){
+                palabra2 = palabra2.substring(0, j) + palabra2.substring(j + 1,palabra2.length());  //Para borrar las letras, creo 2 substrings y luego los junto
+                if(palabra2.equals("")){ //Si se han comprobado y borrado todas las letras el string tiene que ser ""
+                    return true;
+                }
+               }
+            }
+         }
+         }
+         return false;
+    }
 
     public static void main(String[] args) {
        int[] numeros = {99,37,7,54,13}; 
@@ -103,7 +128,7 @@ public class EjerciciosNivel01 {
        // palindromo System.out.print(e.esPalindromo("Acaso hubo buhos acá")); 
        //es Isograma System.out.println(e.esIsograma("pajaro"));
        //es Acronimo System.out.println("acronimo de alta velocidad española: " + e.esAcronimo("Alta Velocidad Española"));
-       
+       //es Anagrama System.out.println(e.esAnagrama("amor","roma"));
        
     }
     
