@@ -117,6 +117,32 @@ public class EjerciciosNivel01 {
          }
          return false;
     }
+    public void imprimeMes(int numX){
+        int contador = 0; //Para saber que dia de la semana estoy imprimiendo
+        //primera fase: Imprime las XX
+        for (int i=0;i<numX; i++){
+            System.out.print("XX ");
+            contador++;
+        }
+        //Segunda fase: imprime los numeros desde el 1 al 31
+        for (int i=1; i<=31;i++){
+            if(i<10){
+            System.out.print("0" + i + " ");
+            } else {
+            System.out.print(i+ " ");
+            }
+            contador++;
+            if (contador % 7 == 0){
+                System.out.println("");
+            }
+        }
+        //Tercera fase: Poner las XX
+        while (!(contador % 7 == 0)) {
+            System.out.print("XX ");
+            contador++;
+        }
+        
+    }
 
     public static void main(String[] args) {
        int[] numeros = {99,37,7,54,13}; 
@@ -129,7 +155,7 @@ public class EjerciciosNivel01 {
        //es Isograma System.out.println(e.esIsograma("pajaro"));
        //es Acronimo System.out.println("acronimo de alta velocidad española: " + e.esAcronimo("Alta Velocidad Española"));
        //es Anagrama System.out.println(e.esAnagrama("amor","roma"));
-       
+       e.imprimeMes(1);
     }
     
 }
